@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine</title>
+<style>
+  .container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  #yesBtn {
+    background-color: green;
+    color: white;
+  }
+  #noBtn {
+    background-color: red;
+    color: white;
+  }
+  #valentineGif {
+    max-width: 100%; /* Make the GIF responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Media queries for responsiveness */
+  @media screen and (max-width: 600px) {
+    .container {
+      margin-top: 20px;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="Will You Be My Valentine?" id="valentineGif">
+  <h2 id="main">Will you be my Valentine, mer mer 🥺?</h2>
+  <button id="yesBtn" onclick="yesClicked()">Yes</button>
+  <button id="noBtn" onclick="noClicked()">No</button>
+</div>
+
+<script>
+ let noPhrases = [
+    "Why not?",
+    "Are you sure?",
+    "You break my heart...",
+    "Please think about it...",
+    "Was this a mistake?",
+    "Don't leave me hanging...",
+    "Give me a chance...",
+    "I promise to make it special...",
+    "Is there someone else?",
+    "Am I not your type?",
+    "Let's talk about it...",
+    "I can't bear the thought of it...",
+    "Are you playing hard to get?",
+    "Can we start over?",
+    "What can I do to change your mind?",
+    "I'll do anything for you...",
+    "I'll be the best Valentine ever...",
+    "I'll shower you with love and affection...",
+    "I'll make you breakfast in bed...",
+    "Let's go on a romantic getaway...",
+    "We can make beautiful memories together...",
+    "I'll write you love letters every day..."
+];
+
+let gifArray = [
+    "https://tenor.com/view/why-not-kyle-broflovski-south-park-s22e10-bike-parade-gif-20412731.gif",
+    "https://tenor.com/view/capoo-why-gif-26772050.gif",
+    "https://tenor.com/view/bugcat-capoo-gif-9642526685569044652.gif",
+    "https://tenor.com/view/puppy-brown-why-let-me-know-i-don't-understand-gif-10741502526411594643.gif",
+    "https://tenor.com/view/dog-smile-puppy-love-eyes-gif-24151147.gif",
+    "https://tenor.com/view/don’t-make-me-beg-gif-18284150441593567102.gif",
+    "https://tenor.com/view/puss-in-boots-cat-cute-kitty-begging-gif-14848029646905247904.gif",
+    "https://tenor.com/view/cute-sad-gif-25924265.gif",
+    "https://tenor.com/view/cute-dog-sad-please-begging-gif-15450191.gif",
+    "https://tenor.com/view/sad-gif-7523306793289960933.gif",
+    "https://tenor.com/view/sad-babe-sory-awww-thinks-cute-sad-gif-25183975.gif",
+    "https://tenor.com/view/depressed-spongebob-sad-window-reaction-tired-gif-10253815500718173973.gif",
+    "https://tenor.com/view/man-crying-gif-27679168.gif",
+    "https://tenor.com/view/tipsy-drunk-lost-lonely-sad-gif-15916913.gif",
+    "https://tenor.com/view/sad-shaggy-will-forte-scoob-whimper-gif-17538227.gif",
+    "https://tenor.com/view/pepe_happy-ending-gif-26564878.gif",
+    "https://tenor.com/view/crying-cat-cry-me-a-river-gaiathegraycat-sad-gif-22347287.gif",
+    // Add paths to more GIFs here
+];
+  let currentPhraseIndex = 0;
+
+  function yesClicked() {
+    document.getElementById('yesBtn').innerText = "Yaaaaay!";
+    document.getElementById('main').innerText = "Great Success Woo hooo!!😘😘😘";
+    document.getElementById('yesBtn').style.fontSize = "24px";
+    document.getElementById('noBtn').style.display = "none";
+    document.getElementById('valentineGif').src = "https://tenor.com/view/bear-kiss-bear-kisses-kiss-kisses-love-gif-22536058.gif";
+}
+
+
+function noClicked() {
+  let sizeIncreaseRate = 20;
+    document.getElementById('yesBtn').style.fontSize = parseInt(window.getComputedStyle(document.getElementById('yesBtn')).fontSize) + sizeIncreaseRate + 'px';
+    document.getElementById('noBtn').innerText = noPhrases[currentPhraseIndex];
+    currentPhraseIndex = (currentPhraseIndex + 1) % noPhrases.length;
+    
+    // Display a different GIF each time the "No" button is clicked
+    let randomIndex = Math.floor(Math.random() * gifArray.length);
+    document.getElementById('valentineGif').src = gifArray[randomIndex];
+}
+
+</script>
+
+</body>
+</html>
